@@ -1,0 +1,32 @@
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+RewriteBase /
+
+ErrorDocument 404 /404.html
+
+#example.com/page will display the contents of example.com/page.html
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L,QSA]
+
+
+
+#301 from example.com/page.html to example.com/page
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+
+
+#wordpress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /net-neutrality/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /net-neutrality/index.php [L]
+</IfModule>
+
+
