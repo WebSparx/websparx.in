@@ -422,9 +422,11 @@ p {
   list-style: none outside;
   padding-top: 14px;
   float: left;
-  width: 106px;
+  width: 200px;
   margin: 0;
 }
+
+
 .list li {
   background: url(../img/marker-1.png) no-repeat 0 7px;
   padding-left: 10px;
